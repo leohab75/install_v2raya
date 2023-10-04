@@ -7,6 +7,6 @@ sleep 3
 
 rm /usr/share/applications/v2raya.desktop
 mv v2raya.desktop /usr/share/applications/
-chmod +xug /usr/share/applications/v2raya.desktop
+chmod +x /usr/share/applications/v2raya.desktop
 
 
