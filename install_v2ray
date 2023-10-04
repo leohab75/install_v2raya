@@ -1,11 +1,12 @@
 #!/bin/bash
-
+apt install xterm
 wget  https://github.com/v2rayA/v2rayA/releases/download/v2.2.4/installer_debian_x64_2.2.4.deb
 dpkg -i $(pwd)/installer_debian_x64_2.2.4.deb
 bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-sleep 5
+sleep 3
 
-sed -i 's;xdg-open "http://127.0.0.1:2017";(pkexec xterm -e v2raya &) && (xdg-open https://wanshanziwo.eu.org/ &) && (xdg-open 127.0.0.1:2017 &);g' /usr/share/applications/v2raya.desktop
-
+rm /usr/share/applications/v2raya.desktop
+mv v2raya.desktop /usr/share/applications/
+chmod +xug /usr/share/applications/v2raya.desktop
 
 
