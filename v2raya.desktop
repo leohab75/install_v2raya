@@ -5,5 +5,5 @@ Type=Application
 Name=v2rayA
 Categories=Network;
 Keywords=Internet;VPN;Proxy;v2ray;v2raya
-Exec=(pkexec xterm -e v2raya &) && (xdg-open https://wanshanziwo.eu.org/ &) && (xdg-open 127.0.0.1:2017 &)
+Exec=(xterm -e pkexec v2raya &) && (sleep 10) && (xdg-open https://wanshanziwo.eu.org/ &) && (xdg-open 127.0.0.1:2017 &)
 Icon=/usr/share/icons/hicolor/512x512/apps/v2raya.png
