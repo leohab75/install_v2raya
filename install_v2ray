@@ -1,0 +1,25 @@
+#!/bin/bash
+apt install python3-pip libnotify4 || dnf install python3-pip libnotify || pacman -S python3-pip libnotify
+sh -c "$(wget -qO- https://github.com/v2rayA/v2rayA-installer/raw/main/installer.sh)" @ --with-v2ray
+sudo sh -c "$(wget -qO- https://github.com/v2rayA/v2rayA-installer/raw/main/installer.sh)" @ --with-xray
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+sleep 3
+
+cp v2raya.png /usr/share/icons/hicolor/512x512/apps/
+
+cp v2raya.desktop /usr/share/applications/
+
+
+cp -r scripts /usr/local/share/v2ray/
+cp -r assets  /usr/local/share/v2ray/
+
+cd /usr/local/share/v2ray/ || echo "bad /usr/local/share/v2ray/"
+python3 -m venv venv
+source /usr/local/share/v2ray/venv/bin/activate
+pip install pystray Pillow PyGObject
+
+chmod -R  755  /usr/local/share/v2ray/venv/
+chmod -R  755  /usr/local/share/v2ray/scripts/
+
+v2raya --reset-password 
+deactivate

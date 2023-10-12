@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=Network;
+Comment[ru_RU]=
+Comment=
+Exec=/bin/bash /usr/local/share/v2ray/scripts/start.sh %f
+GenericName[ru_RU]=
+GenericName=
+Icon=/usr/share/icons/hicolor/512x512/apps/v2raya.png
+Keywords=Internet;VPN;Proxy;v2ray;v2raya
+MimeType=
+Name[ru_RU]=v2rayA
+Name=v2rayA
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-KDE-SubstituteUID=false
+X-KDE-Username=

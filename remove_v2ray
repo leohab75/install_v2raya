@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+/bin/bash /usr/local/share/v2ray/scripts/kill.sh
+V2raya_tray_pid=$(pgrep -f 'python3 /usr/local/share/v2ray/scripts/V2rayA')
+
+kill $V2raya_tray_pid 2 &>/dev/null
+
+rm -f /usr/share/applications/v2raya*
+rm -rf /etc/v2raya/
+rm -rf /usr/local/bin/v2ray*
+rm -rf /usr/local/share/v2ray/

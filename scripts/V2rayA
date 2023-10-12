@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+
+import os
+import sys
+import pystray
+import PIL.Image
+
+path = '/usr/local/share/v2ray/assets/favicon-32x32.png'
+
+image = PIL.Image.open(path)
+
+
+def on_clicked(icon, item):
+    if str(item) == "V2rayA START":
+        os.system(" /bin/bash /usr/local/share/v2ray/scripts/start.sh")
+    elif str(item) == "V2rayA STOP":
+        os.system("/bin/bash /usr/local/share/v2ray/scripts/kill.sh")
+    elif str(item) == "Check IP":
+        os.system("curl -s -N eth0.me | xargs notify-send")
+    elif str(item) == "Exit":
+        icon.stop()
+    else:
+        print("no implementation.. !!")
+
+
+Icon = pystray.Icon("V2raA", image, menu=pystray.Menu(
+    pystray.MenuItem("V2rayA START", on_clicked),
+    pystray.MenuItem("V2rayA STOP", on_clicked),
+    pystray.MenuItem("Check IP", on_clicked),
+    pystray.MenuItem("Exit", on_clicked),
+))
+
+Icon.run()
+Icon.stop()
+sys.exit(0)
