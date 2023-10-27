@@ -14,14 +14,18 @@ python3 /usr/local/share/v2ray/scripts/V2rayA &
 if [[ ! $(pidof v2raya) ]]; then
 
     echo "V2rayA Start"
-    (pkexec v2raya &) && (sleep 10) && (echo -en "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt" | xclip  -sel clip) && (xdg-open 127.0.0.1:2017 &)
+    (pkexec v2raya &) && (sleep 10)
 
 else
 
     sleep 5
 
-    echo -en "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt" | xclip  -sel clip
-    xdg-open 127.0.0.1:2017 &
+    echo "V2rayA Start"
+
 fi
+
+
+echo "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt " | xclip -sel clip
+xdg-open 127.0.0.1:2017 &
 
 deactivate
