@@ -17,7 +17,7 @@ def on_clicked(icon, item):
     elif str(item) == "V2rayA STOP":
         os.system("/bin/bash /usr/local/share/v2ray/scripts/kill.sh")
     elif str(item) == "Check IP":
-        os.system("curl -s -N eth0.me | xargs notify-send  -a V2rayA -i /usr/local/share/v2ray/assets/favicon-32x32.png 'Youre IP' ")
+        os.system("bash /usr/local/share/v2ray/scripts/country_flags.sh | xargs notify-send  -a V2rayA -i /usr/local/share/v2ray/assets/favicon-32x32.png 'Youre IP'  ")
     elif str(item) == "Exit":
         icon.stop()
     else:
