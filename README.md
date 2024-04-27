@@ -8,11 +8,13 @@ git clone https://github.com/leohab75/install_v2raya.git && cd install_v2raya/ &
 ### 2. При нажатии на иконку браузер откроется сам на 127.0.0.1:2017
 ### 3. ссылка на конф. файл будет скопированна в буфер обмена ⤵️
 #### https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt
-####  (при первом запуске её нужно будет вставить в соответствующее поле, а дельше просто обновлять)
+####  (при первом запуске её нужно будет вставить в соответствующее поле, а дальше только обновлять)
+#### +/- 200 лучших серверов из <1000 . список обновляется каждые 6 часов
 
 ## Пример установки и первого запуска (kubuntu)
 
-[![Example](assets/v2raya.png)] (https://www.youtube.com/watch?v=t4VMaeddnNM)
+![Example](assets/v2raya.png)
+ ## Youtube ➡️ https://www.youtube.com/watch?v=t4VMaeddnNM
 
 
 # Удалить
@@ -20,5 +22,5 @@ git clone https://github.com/leohab75/install_v2raya.git && cd install_v2raya/ &
 
 
 ```
-sudo bash remove_v2ray
+cd install_v2raya/ && sudo bash remove_v2ray
 ```
