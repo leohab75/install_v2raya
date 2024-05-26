@@ -6,7 +6,7 @@ import sys
 import pystray
 import PIL.Image
 
-path = '/usr/local/share/v2ray/assets/favicon-32x32.png'
+path = '/usr/local/share/v2ray/favicon-32x32.png'
 
 image = PIL.Image.open(path)
 
