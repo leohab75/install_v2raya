@@ -7,6 +7,8 @@ kill $V2raya_tray_pid 2 &>/dev/null
 killall v2ray
 
 rm -f /usr/share/applications/v2raya*
-rm -rf /etc/v2raya/
+rm -rf /etc/v2raya*
 rm -rf /usr/local/bin/v2ray*
-rm -rf /usr/local/share/v2ray/
+rm -rf /usr/local/share/v2ray*
+
+apt remove --purge v2ray v2raya -y
