@@ -1,93 +1,19 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
 
-Color_Off='\033[0m'
-Red='\033[0;31m'
-Green='\033[0;32m'
-Yellow='\033[0;33m'
+echo -e "$USER" >/tmp/User
+pwd >>/tmp/User
+pkexec bash $(pwd)/scripts/realease.sh
 
-if [ "$(id -u)" -ne 0 ]; then
-    echo -e "\n$Red Please run as root.\n$Green example:$Yellow sudo bash install_v2ray \n$Color_Off" >&2
-    exit 1
+icon="v2raya.png"
+choice=$(zenity --list --checklist --window-icon="$icon" --title="Optins" --text="Дополнения:" --separator=" " --column="🔆" --column="" --column="" --hide-column=2 \
+  true "font" "Установить Emoji font" true "servise" "Включить сервис v2raya" false "no_passwd" "отключить ввод пароля" --height=300 --width=450)
+
+if [[ $? = "0" ]]; then
+  pkexec bash $(pwd)/scripts/post_install.sh $choice
 fi
 
-echo -e "$Green \n install dependencies \n$Color_Off"
-apt update -y && apt install python3-pip shadowsocks-libev libcairo2-dev pkg-config python3-dev python3-venv xclip libnotify-bin \
-    python3-gi python3-gst-1.0 python-gi-dev cmake g++ build-essential libglib2.0-dev \
-    libglib2.0-dev-bin libgstreamer1.0-dev libtool m4 autoconf automake libgirepository1.0-dev \
-    gobject-introspection -y || (echo -e "$Red err: $Yellow dependencies only .deb $Color_Off" && exit 1)
-
-apt install gir1.2-appindicator3-0.1 -y || apt install pkexec libayatana-appindicator3-1 -y
-
-echo -e "$Green install v2raya \n\t\t $Red => $Yellow https://v2raya.org/en/docs/prologue/installation/debian/ \n$Color_Off"
-
-wget -qO - https://apt.v2raya.org/key/public-key.asc | tee /etc/apt/keyrings/v2raya.asc
-echo "deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main" | tee /etc/apt/sources.list.d/v2raya.list
-sudo apt update
-sudo apt install v2raya v2ray -y
-
-sleep 3
-
-cp v2raya.png /usr/share/icons/hicolor/512x512/apps/
-
-rm /usr/share/applications/v2raya.desktop
-cp v2raya.desktop /usr/share/applications/
-
-if [[ ! -d /usr/local/share/v2ray/ ]]; then mkdir -p /usr/local/share/v2ray/; fi
-cp -r scripts/ /usr/local/share/v2ray/
-cp assets/favicon-32x32.png /usr/local/share/v2ray/
-
-cd /usr/local/share/v2ray/ || echo -e " $Red bad path /usr/local/share/v2ray/ $Color_Off"
-
-echo -e "\n$Yellow setting Tray $Color_Off\n"
-python3 -m venv venv
-source /usr/local/share/v2ray/venv/bin/activate
-pip install pystray Pillow PyGObject
-
-chmod -R 755 /usr/local/share/v2ray/venv/
-chmod -R 755 /usr/local/share/v2ray/scripts/
-
-#v2raya --reset-password
-
-deactivate
-
-echo -e "$Green"
-read -e -p " Install emoji fonts? " -i "Y" choice
-echo -e "$Color_Off"
-
-if [[ $choice == "Y" ]]; then
-    if [[ ! -d ~/.config/fontconfig/ ]]; then mkdir -p ~/.config/fontconfig/; fi
-    if [[ ! -d ~/.config/fontconfig/conf.d/ ]]; then mkdir -p ~/.config/fontconfig/conf.d/; fi
-
-    apt install fonts-noto-color-emoji
-
-    cat <<EOF >~/.config/fontconfig/conf.d/01-emoji.conf
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <alias>
-    <family>serif</family>
-    <prefer>
-      <family>Noto Color Emoji</family>
-    </prefer>
-  </alias>
-  <alias>
-    <family>sans-serif</family>
-    <prefer>
-      <family>Noto Color Emoji</family>
-    </prefer>
-  </alias>
-  <alias>
-    <family>monospace</family>
-    <prefer>
-      <family>Noto Color Emoji</family>
-    </prefer>
-  </alias>
-</fontconfig>
-EOF
-
-    fc-cache -f -v
-
+if [[ -f "$HOME"/'Рабочий стол'/v2raya ]]; then
+  ln -s /usr/share/applications/v2raya.desktop "$HOME"/'Рабочий стол'/v2raya
+elif [[ -f "$HOME"/'Desktop'/v2raya ]]; then
+  ln -s /usr/share/applications/v2raya.desktop "$HOME"/'Desktop'/v2raya
 fi
-
-exit 0
