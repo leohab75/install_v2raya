@@ -25,6 +25,6 @@ else
 fi
 
 echo "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt " | xclip -sel clip
-xdg-open 127.0.0.1:2017 &
+python3 -m webbrowser -n http://127.0.0.1:2017 &
 
 deactivate
