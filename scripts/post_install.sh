@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-set -x
+set -e
 
 Color_Off='\033[0m'
 Red='\033[0;31m'
 Green='\033[0;32m'
 
-choice=$@
+choice=("$@")
 
-for set in $choice; do
+for set in "${choice[@]}"; do
     case $set in
 
     font)
@@ -66,3 +66,5 @@ EOF
         ;;
     esac
 done
+
+rm -f /tmp/User

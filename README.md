@@ -2,7 +2,7 @@
 ## только для .deb
 
 ```
-git clone https://github.com/leohab75/install_v2raya.git && cd install_v2raya/ && sudo bash install_v2ray
+git clone https://github.com/leohab75/install_v2raya.git && cd install_v2raya/ && bash install_v2ray
 ```
 ### 1. кнопка запуска будет в меню приложений на вкладке интернет
 ### 2. При нажатии на иконку браузер откроется сам на 127.0.0.1:2017

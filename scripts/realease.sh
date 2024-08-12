@@ -53,10 +53,7 @@ pip install pystray Pillow PyGObject
 chmod -R 755 /usr/local/share/v2ray/venv/
 chmod -R 755 /usr/local/share/v2ray/scripts/
 
-#v2raya --reset-password
+v2raya --reset-password
 
 deactivate
 
-
-
-exit 0
