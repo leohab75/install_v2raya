@@ -62,6 +62,7 @@ EOF
         echo "$_User_  ALL=(ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/v2raya_no_passwd
 
         sed -i 's/pkexec/sudo/g' /usr/local/share/v2ray/scripts/start.sh
+        sed -i 's/pkexec/sudo/g' /usr/local/share/v2ray/scripts/kill.sh
         echo -e "$Color_Off"
         ;;
     esac
