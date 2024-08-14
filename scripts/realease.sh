@@ -15,9 +15,10 @@ echo -e "$Green \n install dependencies \n$Color_Off"
 apt update -y && apt install python3-pip shadowsocks-libev libcairo2-dev pkg-config python3-dev python3-venv xclip libnotify-bin \
     python3-gi python3-gst-1.0 python-gi-dev cmake g++ build-essential libglib2.0-dev \
     libglib2.0-dev-bin libgstreamer1.0-dev libtool m4 autoconf automake libgirepository1.0-dev \
-    gobject-introspection curl -y || (echo -e "$Red err: $Yellow dependencies only .deb $Color_Off" && exit 1)
+    gobject-introspection curl xterm -y || (echo -e "$Red err: $Yellow dependencies only .deb $Color_Off" && exit 1)
 
-apt install gir1.2-appindicator3-0.1 -y || apt install pkexec gir1.2-ayatanaappindicator3-0.1 -y
+apt install gir1.2-appindicator3-0.1 -y
+apt install pkexec gir1.2-ayatanaappindicator3-0.1 -y
 
 apt install zenity -y
 
@@ -29,8 +30,6 @@ sudo apt update
 sudo apt install v2raya v2ray -y
 
 sleep 3
-
-
 
 path=$(cat /tmp/User | awk NR==2)
 
@@ -56,4 +55,3 @@ chmod -R 755 /usr/local/share/v2ray/scripts/
 v2raya --reset-password
 
 deactivate
-
