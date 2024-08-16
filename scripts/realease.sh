@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 Color_Off='\033[0m'
 Red='\033[0;31m'
