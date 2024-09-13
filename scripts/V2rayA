@@ -24,6 +24,8 @@ def on_clicked(icon, item):
         os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'enable'")
     elif str(item) == "Disable daemon":
         os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'disable'")
+    elif str(item) == "Restart daemon":
+        os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'restart'")
     elif str(item) == "Status daemon":
         os.system("xterm -fa 'Monospace' -fs 11 -e 'systemctl status v2raya.service'")
     elif str(item) == "Info":
@@ -45,6 +47,7 @@ Icon = pystray.Icon("V2raA", image, menu=pystray.Menu(
         pystray.MenuItem("Stop daemon", on_clicked),
         pystray.MenuItem("Enable daemon", on_clicked),
         pystray.MenuItem("Disable daemon", on_clicked),
+        pystray.MenuItem("Restart daemon", on_clicked),
         pystray.MenuItem("Status daemon", on_clicked))),
     pystray.MenuItem("Info", on_clicked),
     pystray.MenuItem("Check IP", on_clicked),
