@@ -6,9 +6,9 @@ pkexec bash "$(pwd)"/scripts/realease.sh
 
 icon="v2raya.png"
 choice=$(zenity --list --checklist --window-icon="$icon" --title="Optins" --text="Дополнения:" --separator=" " --column="🔆" --column="" --column="" --hide-column=2 \
-  true "font" "Установить Emoji font" true "servise" "Включить сервис v2raya" false "no_passwd" "отключить ввод пароля" --height=300 --width=450)
+  true "font" "Установить Emoji font" false "servise" "Включить сервис v2raya" false "no_passwd" "отключить ввод пароля" --height=300 --width=450)
 
-if [[ $? = "0" ]]; then
+if [[ $? = "0" && (-n $choice) ]]; then
   pkexec bash "$(pwd)"/scripts/post_install.sh $choice
 fi
 
