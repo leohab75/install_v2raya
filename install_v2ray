@@ -2,18 +2,18 @@
 
 echo -e "$USER" >/tmp/User
 pwd >>/tmp/User
-pkexec bash $(pwd)/scripts/realease.sh
+pkexec bash "$(pwd)"/scripts/realease.sh
 
 icon="v2raya.png"
 choice=$(zenity --list --checklist --window-icon="$icon" --title="Optins" --text="Дополнения:" --separator=" " --column="🔆" --column="" --column="" --hide-column=2 \
-  true "font" "Установить Emoji font" true "servise" "Включить сервис v2raya" false "no_passwd" "отключить ввод пароля" --height=300 --width=450)
+  true "font" "Установить Emoji font" false "servise" "Включить сервис v2raya" false "no_passwd" "отключить ввод пароля" --height=300 --width=450)
 
-if [[ $? = "0" ]]; then
-  pkexec bash $(pwd)/scripts/post_install.sh $choice
+if [[ $? = "0" && (-n $choice) ]]; then
+  pkexec bash "$(pwd)"/scripts/post_install.sh $choice
 fi
 
-if [[ -f "$HOME"/'Рабочий стол'/v2raya ]]; then
+if [[ ! -f "$HOME"/'Рабочий стол'/v2raya ]]; then
   ln -s /usr/share/applications/v2raya.desktop "$HOME"/'Рабочий стол'/v2raya
-elif [[ -f "$HOME"/'Desktop'/v2raya ]]; then
+elif [[ ! -f "$HOME"/'Desktop'/v2raya ]]; then
   ln -s /usr/share/applications/v2raya.desktop "$HOME"/'Desktop'/v2raya
 fi

@@ -14,7 +14,7 @@ python3 /usr/local/share/v2ray/scripts/V2rayA &
 if [[ ! $(pidof v2raya) ]]; then
 
     echo "V2rayA Start"
-    (pkexec v2raya &) && (sleep 10)
+    (pkexec v2raya &) && (sleep 2)
 
 else
 
@@ -24,7 +24,7 @@ else
 
 fi
 
-echo "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt " | xclip -sel clip
+#echo "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt " | xclip -sel clip
 python3 -m webbrowser -n http://127.0.0.1:2017 &
 
 deactivate

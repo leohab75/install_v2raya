@@ -16,6 +16,20 @@ def on_clicked(icon, item):
         os.system(" /bin/bash /usr/local/share/v2ray/scripts/start.sh")
     elif str(item) == "V2rayA STOP":
         os.system("/bin/bash /usr/local/share/v2ray/scripts/kill.sh")
+    elif str(item) == "Start daemon":
+        os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'start'")
+    elif str(item) == "Stop daemon":
+        os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'stop'")
+    elif str(item) == "Enable daemon":
+        os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'enable'")
+    elif str(item) == "Disable daemon":
+        os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'disable'")
+    elif str(item) == "Restart daemon":
+        os.system("bash /usr/local/share/v2ray/scripts/daemon.sh 'restart'")
+    elif str(item) == "Status daemon":
+        os.system("xterm -fa 'Monospace' -fs 11 -e 'systemctl status v2raya.service'")
+    elif str(item) == "Info":
+        os.system("bash /usr/local/share/v2ray/scripts/info.sh")
     elif str(item) == "Check IP":
         os.system("bash /usr/local/share/v2ray/scripts/country_flags.sh | xargs notify-send  -a V2rayA -i /usr/local/share/v2ray/favicon-32x32.png 'Youre IP'  ")
     elif str(item) == "Exit":
@@ -25,8 +39,17 @@ def on_clicked(icon, item):
 
 
 Icon = pystray.Icon("V2raA", image, menu=pystray.Menu(
-    pystray.MenuItem("V2rayA START", on_clicked),
-    pystray.MenuItem("V2rayA STOP", on_clicked),
+    pystray.MenuItem("V2raya", pystray.Menu(
+        pystray.MenuItem("V2rayA START", on_clicked),
+        pystray.MenuItem("V2rayA STOP", on_clicked))),
+    pystray.MenuItem("Service", pystray.Menu(
+        pystray.MenuItem("Start daemon", on_clicked),
+        pystray.MenuItem("Stop daemon", on_clicked),
+        pystray.MenuItem("Enable daemon", on_clicked),
+        pystray.MenuItem("Disable daemon", on_clicked),
+        pystray.MenuItem("Restart daemon", on_clicked),
+        pystray.MenuItem("Status daemon", on_clicked))),
+    pystray.MenuItem("Info", on_clicked),
     pystray.MenuItem("Check IP", on_clicked),
     pystray.MenuItem("Exit", on_clicked),
 ))
