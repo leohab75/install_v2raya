@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/usr/local/share/v2ray/favicon-32x32.png">
+    <title>V2raya link</title>
+    <style>
+        body {
+            background-image: url('https://www.plenum.de/fileadmin/Grafiken/CU_TA/1319949062_Slider_TA.gif');
+            /* Укажите URL вашего GIF */
+            background-color: grey;
+            /* если не загрузится gif */
+            background-size: cover;
+            /* Растянуть фон на весь экран */
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: white;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            /* Центрирование текста */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 5;
+        }
+
+        li {
+            margin: 10px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Полупрозрачный черный фон для контраста */
+            padding: 10px;
+            border-radius: 5px;
+            /* Закругленные углы */
+        }
+
+        a {
+            color: #00ccff;
+            /* Цвет ссылок */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* Подчеркивание при наведении */
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #00ccff;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0099cc;
+            /* Цвет кнопки при наведении */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Список ссылок для V2raya</h1>
+
+    <ul>
+        <li>
+            <a href="https://github.com/mahdibland/V2RayAggregator" target="_blank">github.com 1</a>
+            <p>https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt</p>
+            <button
+                onclick="copyToClipboard('https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt')">Копировать
+                ссылку</button>
+        </li>
+        <li>
+            <a href="https://github.com/Epodonios/v2ray-configs" target="_blank">github.com 2</a>
+            <p>https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Config%20list1.txt</p>
+            <button
+                onclick="copyToClipboard('https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Config%20list1.txt')">Копировать
+                ссылку</button>
+        </li>
+        <li>
+            <a href="https://openproxylist.com/v2ray/" target="_blank">openproxylist.com </a>
+            <p>https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt</p>
+            <button
+                onclick="copyToClipboard('https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_RAW.txt')">Копировать
+                ссылку</button>
+        </li>
+        <li>
+            <a href="https://vpn.fail/free-proxy/type/v2ray" target="_blank">vpn.fail</a>
+            <p>https://vpn.fail/free-proxy/v2ray</p>
+            <button onclick="copyToClipboard('https://vpn.fail/free-proxy/v2ray')">Копировать ссылку</button>
+        </li>
+        <li>
+            <a href="https://github.com/barry-far/V2ray-Configs" target="_blank">github.com 3</a>
+            <p>https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Sub1.txt</p>
+            <button
+                onclick="copyToClipboard('https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Sub1.txt')">Копировать
+                ссылку</button>
+        </li>
+        <li>
+            <a href="https://github.com/snakem982/proxypool" target="_blank">github.com 4</a>
+            <p>https://raw.githubusercontent.com/snakem982/proxypool/main/source/v2ray.txt</p>
+            <button
+                onclick="copyToClipboard('https://raw.githubusercontent.com/snakem982/proxypool/main/source/v2ray.txt')">Копировать
+                ссылку</button>
+        </li>
+        <li>
+            <a href="https://github.com/mermeroo/V2RAY-and-CLASH-Subscription-Links/blob/main/SUB%20LINKS"
+                target="_blank"><b> Мне мало !</b></a>
+        </li>
+    </ul>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function () {
+                alert('Ссылка скопирована в буфер обмена!');
+            }, function (err) {
+                console.error('Ошибка при копировании: ', err);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
